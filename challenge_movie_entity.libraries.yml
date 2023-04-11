@@ -1,0 +1,7 @@
+form_edit:
+  version: 1.x
+  css:
+    theme:
+      css/form_movie.css: {}
+  js:
+    js/form_movie_validate.js: {}

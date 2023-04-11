@@ -1,0 +1,8 @@
+uuid: c3f1755c-5e57-4367-b58d-cab56c8dfcaa
+langcode: en
+status: true
+dependencies: {  }
+name: Genre
+vid: genre
+description: 'Vocabulary to indicate genre of movies'
+weight: 0

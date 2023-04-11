@@ -1,0 +1,7 @@
+entity.movie.settings:
+  path: 'admin/structure/movie'
+  defaults:
+    _form: '\Drupal\challenge_movie_entity\Form\MovieSettingsForm'
+    _title: 'Movie'
+  requirements:
+    _permission: 'administer movie'
