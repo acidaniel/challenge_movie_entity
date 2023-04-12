@@ -39,7 +39,10 @@ class MovieForm extends ContentEntityForm {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#attached']['library'][] = 'challenge_movie_entity/form_edit';
-    return parent::buildForm($form, $form_state);
+    
+    $form_build = parent::buildForm($form, $form_state);
+    return $form_build;
+    //return parent::buildForm($form, $form_state);
   }
 
 }
