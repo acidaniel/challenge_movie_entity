@@ -1,0 +1,13 @@
+.custom_class_wrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.custom_class_wrapper .form-wrapper {
+    flex-grow: 1;
+}
+
+/* Highlight field for future date class. */
+input#edit-release-date-0-value-date.future_date {
+    border: 1px solid red;
+}
