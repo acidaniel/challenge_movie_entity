@@ -1,0 +1,6 @@
+services:
+  movie.normalizer:
+    class: Drupal\challenge_movie_entity\Normalizer\MovieNormalizer
+    arguments: ['@entity_type.manager', '@entity_type.repository', '@entity_field.manager']
+    tags:
+      - { name: normalizer, priority: 20 }

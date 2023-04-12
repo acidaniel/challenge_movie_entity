@@ -130,6 +130,7 @@ class Movie extends ContentEntityBase implements MovieInterface {
     // Custom Reference Field to Genre Taxonomy Vocabulary.
     $fields['genre'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Genre'))
+      ->setDescription(t('Define the Genre of the movie.'))
       ->setSetting('target_type', 'taxonomy_term')
       ->setSetting('handler', 'default:taxonomy_term')
       ->setSetting('handler_settings', [
@@ -148,7 +149,7 @@ class Movie extends ContentEntityBase implements MovieInterface {
         'weight' => 3, 
         'settings' => [
           'match_operator' => 'CONTAINS',
-          'size' => '20',
+          'size' => '40',
         ]
       ])
 
@@ -158,6 +159,7 @@ class Movie extends ContentEntityBase implements MovieInterface {
     // Custom field to store release date for the Movie.
     $fields['release_date'] = BaseFieldDefinition::create('datetime')
       ->setLabel(t('Release Date'))
+      ->setDescription(t('Date of when the movie was released'))
       ->setRequired(TRUE)
       ->setSettings([
         'datetime_type' => 'date'
@@ -174,6 +176,7 @@ class Movie extends ContentEntityBase implements MovieInterface {
 
       ->setDisplayOptions('form', [
         'type' => 'datetime',
+        'size' => '30',
         'weight' => 2,
       ])
 

@@ -2,20 +2,37 @@
 
 namespace Drupal\challenge_movie_entity\Normalizer;
 
-use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Entity\EntityTypeRepositoryInterface;
 use Drupal\serialization\Normalizer\EntityNormalizer;
 
 class MovieNormalizer extends EntityNormalizer {
 
-    public function __construct(EntityTypeManagerInterface $entity_type_manager) {
-        parent::__construct($entity_type_manager);
-    }
+  /**
+   * Constructs an EntityNormalizer object.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
+   * @param \Drupal\Core\Entity\EntityTypeRepositoryInterface $entity_type_repository
+   *   The entity type repository.
+   * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
+   *   The entity field manager.
+   */
+ public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityTypeRepositoryInterface $entity_type_repository, EntityFieldManagerInterface $entity_field_manager) {
+    parent::__construct($entity_type_manager, $entity_type_repository, $entity_field_manager);
+ }
 
-    public function supportsNormalization($data, $format = NULL) {
-        return $data instanceof MovieInterface;
-    }
-
-
+  /**
+   * {@inheritdoc}
+   */
+  public function normalize($entity, $format = NULL, array $context = []) {
+    // Since we want to override the default normalize we don't need the parent.
+    //$data = parent::normalize($entity, $format, $context);
+    $data['id'] = $entity->id();
+    $data['release_date'] = $entity->release_date->getValue()[0]['value'];
+    $data['genre'] = $entity->genre->entity->getName();
+    return $data;
+  }  
 }
 

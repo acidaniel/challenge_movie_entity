@@ -38,11 +38,32 @@ class MovieForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#attached']['library'][] = 'challenge_movie_entity/form_edit';
     
+    // Attaching custom library.
+    $form['#attached']['library'][] = 'challenge_movie_entity/form_edit';
+    // Add custom wrapper container.
+    $form['field_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['custom_class_wrapper'],
+      ],
+    ];
+    // Define needed fields to adds them to a wrapper.
+    $custom_fields = [
+      'title',
+      'release_date',
+      'genre',
+    ];
+
+    // Generate the form_build.
     $form_build = parent::buildForm($form, $form_state);
+    // Build fields into custom wrapper and unset original ones.
+    foreach($custom_fields as $custom_field_key) {
+      $form_build['field_wrapper'][$custom_field_key] = $form_build[$custom_field_key];
+      unset($form_build[$custom_field_key]);
+    }
+    // Returning new custom form.
     return $form_build;
-    //return parent::buildForm($form, $form_state);
   }
 
 }
