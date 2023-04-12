@@ -1,5 +1,5 @@
 // Adding custom pure JavaScript tp validate date field.
-document.querySelector('#movie-add-form').addEventListener('submit', function(event) {
+document.querySelector('#movie-add-form').addEventListener('submit', function (event) {
     // Getting Date Value from field.
     var dateField = document.querySelector('#edit-release-date-0-value-date');
     var dateValue = dateField.value;
@@ -14,5 +14,4 @@ document.querySelector('#movie-add-form').addEventListener('submit', function(ev
       // Adding custom class to date field.
       dateField.classList.add('future_date');
     }
-
 });

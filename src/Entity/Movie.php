@@ -135,8 +135,8 @@ class Movie extends ContentEntityBase implements MovieInterface {
       ->setSetting('handler', 'default:taxonomy_term')
       ->setSetting('handler_settings', [
         'target_bundles' => [
-          'genre' => 'genre'
-        ]
+          'genre' => 'genre',
+        ],
       ])
 
       ->setDisplayOptions('view', [
@@ -146,30 +146,30 @@ class Movie extends ContentEntityBase implements MovieInterface {
 
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
-        'weight' => 3, 
+        'weight' => 3,
         'settings' => [
           'match_operator' => 'CONTAINS',
           'size' => '40',
-        ]
+        ],
       ])
 
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayConfigurable('form', TRUE);
-    
+
     // Custom field to store release date for the Movie.
     $fields['release_date'] = BaseFieldDefinition::create('datetime')
       ->setLabel(t('Release Date'))
       ->setDescription(t('Date of when the movie was released'))
       ->setRequired(TRUE)
       ->setSettings([
-        'datetime_type' => 'date'
+        'datetime_type' => 'date',
       ])
 
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'datetime_default',
         'settings' => [
-          'format_type' => 'medium'
+          'format_type' => 'medium',
         ],
         'weight' => -3,
       ])
@@ -181,8 +181,8 @@ class Movie extends ContentEntityBase implements MovieInterface {
       ])
 
       ->setDisplayConfigurable('view', TRUE)
-      ->setDisplayConfigurable('form', TRUE); 
-    
+      ->setDisplayConfigurable('form', TRUE);
+
     return $fields;
   }
 

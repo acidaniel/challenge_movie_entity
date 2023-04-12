@@ -89,7 +89,7 @@ class MovieListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var $entity \Drupal\challenge_movie_entity\MovieInterface */
+    /** @var $entity \Drupal\challenge_movie_entity\MovieInterface */
     $row['id'] = $entity->id();
     $row['title'] = $entity->toLink();
     $row['release_date'] = $entity->release_date->value;

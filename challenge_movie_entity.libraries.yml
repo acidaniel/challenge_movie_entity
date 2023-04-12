@@ -5,3 +5,4 @@ form_edit:
       css/form_movie.css: {}
   js:
     js/form_movie_validate.js: {}
+    
