@@ -30,9 +30,9 @@ class MovieNormalizer extends EntityNormalizer {
     // Since we want to override the default normalize we don't need the parent.
     //$data = parent::normalize($entity, $format, $context);
     $data['id'] = $entity->id();
+    $data['title'] = $entity->getTitle();
     $data['release_date'] = $entity->release_date->getValue()[0]['value'];
-    $data['genre'] = $entity->genre->entity->getName();
+    $data['genre'] = !$entity->genre->isEmpty() ? $entity->genre->entity->getName() : NULL ;
     return $data;
   }  
 }
-
