@@ -8,6 +8,6 @@
 }
 
 /* Highlight field for future date class. */
-input#edit-release-date-0-value-date.future_date {
-  border: 1px solid red;
+input#edit-release-date-0-value-date.future_date:focus {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 5px red;
 }
